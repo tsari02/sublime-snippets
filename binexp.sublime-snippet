@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+
+long long int fbinexp (long long int a, long long int b, long long int m) {
+        long long int res = 1;
+        while (b > 0) {
+                if(b % 2) {
+                   res = (res * a) % m;
+                }
+                a = (a * a) % m;
+                b = b / 2;
+        }
+        return res;
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>snipbinaryexponentiation</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

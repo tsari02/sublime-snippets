@@ -1,0 +1,39 @@
+<snippet>
+	<content><![CDATA[
+
+
+struct Matrix{
+	long long a[2][2];
+	Matrix operator *(Matrix other){
+		Matrix product{{{0,0},{0,0}}};
+		rep(i,0,2){
+			rep(j,0,2){
+				rep(k,0,2){
+					product.a[i][k] += other.a[i][j] * other.a[j][k];
+					product.a[i][k] %= MOD;
+				}
+			}
+		}
+		return product;
+	}
+};
+
+Matrix expo_power(Matrix a, long long k) {
+	Matrix product;
+	rep(i,0,2){
+		product.a[i][i] = 1;
+	}
+	while(k>0){
+		if(k%2==1){
+			product = product * a;
+		}
+		a = a * a;
+		k /= 2;
+	}
+	return product;
+}]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>snipmatrixexpo</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
